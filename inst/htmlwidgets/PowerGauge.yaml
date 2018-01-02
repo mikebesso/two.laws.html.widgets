@@ -1,0 +1,11 @@
+ dependencies:
+  - name: d3
+    version: 4.2.6
+    src: htmlwidgets/lib/d3
+    script: d3-4.2.6.min.js
+    stylesheet:
+  - name: PowerGauge
+    version: 0.0.0
+    src: htmlwidgets/lib/PowerGauge
+    script: PowerGauge.js
+    stylesheet: PowerGauge.css

@@ -1,0 +1,26 @@
+
+svg.PerformanceBullet {
+  border-width: 2;
+  border-color: #ccc;
+}
+.bullet { font: 10px sans-serif; }
+.bullet .marker { stroke: #000; stroke-width: 2px; }
+.bullet .tick line { stroke: #666; stroke-width: .5px; }
+.bullet .range.s0 { fill: #eee; }
+.bullet .range.s1 { fill: #ddd; }
+.bullet .range.s2 { fill: #ccc; }
+.bullet .measure.s0 { fill: lightsteelblue; }
+.bullet .measure.s1 { fill: steelblue; }
+.bullet .title { font-size: 14px; font-weight: bold; }
+.bullet .subtitle { fill: #999; }
+
+svg.PerformanceBullet .bar-back {fill: #ccc; opacity: 0.2;}
+svg.PerformanceBullet .bar-unsuccessful {fill: red; opacity: 0.2;}
+svg.PerformanceBullet .bar-building {fill: orange; opacity: 0.2;}
+svg.PerformanceBullet .bar-successful {fill: cyan; opacity: 0.2;}
+svg.PerformanceBullet .bar-outstanding {fill: blue; opacity: 0.2;}
+svg.PerformanceBullet .bar-exceptional {fill: green; opacity: 0.2;}
+
+
+svg.PerformanceBullet .title {font-weight: bold;}
+svg.PerformanceBullet .subtitle {font-style: italic;}
