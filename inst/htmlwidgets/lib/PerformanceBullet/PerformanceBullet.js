@@ -23,7 +23,7 @@ TwoLawsPerformanceBullet = function(){
 
   // Calculate visuals    
 
-  var inset = 5;
+  var inset = 2;
   var barCount = 6;
 
 
@@ -40,12 +40,12 @@ TwoLawsPerformanceBullet = function(){
     .domain([minValue, maxValue])
     .range([0, barWidth]);
 
-  InsetBar = function(bar, value){
+  InsetBar = function(bar, value, insetThis = inset){
 
     var left = bar.left;
     var right = bar.left + ScaleValue(value);
-    var top = bar.top + inset;
-    var bottom = bar.bottom - inset;
+    var top = bar.top + insetThis;
+    var bottom = bar.bottom - insetThis;
     var width = right - left;
     var height = bottom - top;
 
@@ -74,14 +74,23 @@ TwoLawsPerformanceBullet = function(){
     height: barHeight
   };
 
-  barUnsuccessful = InsetBar(barBack, unsuccessful);
-  barBuilding = InsetBar(barUnsuccessful, building);
-  barSuccessful = InsetBar(barBuilding, successful);
-  barOutstanding = InsetBar(barSuccessful, outstanding);
-  barExceptional = InsetBar(barOutstanding, exceptional);
+  barExceptional = InsetBar(barBack, exceptional);
+  barOutstanding = InsetBar(barExceptional, outstanding);
+  barSuccessful = InsetBar(barOutstanding, successful);
+  barBuilding = InsetBar(barSuccessful, building);
+  barUnsuccessful = InsetBar(barBuilding, unsuccessful);
 
-  barCurrent = InsetBar(barExceptional, value)
+  barCurrent = InsetBar(barUnsuccessful, value, inset)
 
+
+// to dos
+  //  position the bullet group using translate.  that will allow us to keep everything 0 based.
+  //  
+  //  add gridline underneath bullets with numbers
+  //
+  //  add text above bullets showing rating
+  //
+  //  On the right side, show the current value... and when appropriate a + supplemental value
 
   chart = function(){
 
@@ -103,7 +112,10 @@ TwoLawsPerformanceBullet = function(){
         .attr("alignment-baseline", "ideographic")
         .text(subtitle)
 
+      legend = self.append("g")
+
       g = self.append("g")
+
 
 
         g.append("rect")
@@ -113,15 +125,35 @@ TwoLawsPerformanceBullet = function(){
           .attr("width", barBack.width)
           .attr("height", barBack.height)
 
-        g.append("rect")
-            .classed("bar-unsuccessful", true)
-            .attr("x", barUnsuccessful.left)
-            .attr("y", barUnsuccessful.top)
-            .attr("height", barUnsuccessful.height)
+       g.append("rect")
+            .classed("bar-exceptional", true)
+            .attr("x", barExceptional.left)
+            .attr("y", barExceptional.top)
+            .attr("height", barExceptional.height)
             .transition()
               .duration(250)
-              .attr("width", barUnsuccessful.width)
+              .attr("width", barExceptional.width)
 
+       g.append("rect")
+            .classed("bar-outstanding", true)
+            .attr("x", barOutstanding.left)
+            .attr("y", barOutstanding.top)
+            .attr("height", barOutstanding.height)
+            .transition()
+              .duration(250)
+              .attr("width", barOutstanding.width)          
+              
+
+       g.append("rect")
+            .classed("bar-successful", true)
+            .attr("x", barSuccessful.left)
+            .attr("y", barSuccessful.top)
+            .attr("height", barSuccessful.height)
+            .transition()
+              .duration(250)
+              .attr("width", barSuccessful.width)                  
+
+ 
        g.append("rect")
             .classed("bar-building", true)
             .attr("x", barBuilding.left)
@@ -132,33 +164,14 @@ TwoLawsPerformanceBullet = function(){
               .attr("width", barBuilding.width)
 
        g.append("rect")
-            .classed("bar-successful", true)
-            .attr("x", barSuccessful.left)
-            .attr("y", barSuccessful.top)
-            .attr("height", barSuccessful.height)
+            .classed("bar-unsuccessful", true)
+            .attr("x", barUnsuccessful.left)
+            .attr("y", barUnsuccessful.top)
+            .attr("height", barUnsuccessful.height)
             .transition()
               .duration(250)
-              .attr("width", barSuccessful.width)
+              .attr("width", barUnsuccessful.width)
 
-
-       g.append("rect")
-            .classed("bar-outstanding", true)
-            .attr("x", barOutstanding.left)
-            .attr("y", barOutstanding.top)
-            .attr("height", barOutstanding.height)
-            .transition()
-              .duration(250)
-              .attr("width", barOutstanding.width)
-
-
-       g.append("rect")
-            .classed("bar-exceptional", true)
-            .attr("x", barExceptional.left)
-            .attr("y", barExceptional.top)
-            .attr("height", barExceptional.height)
-            .transition()
-              .duration(250)
-              .attr("width", barExceptional.width)
 
       v = self.append("rect")
             .classed("bar-value", true)

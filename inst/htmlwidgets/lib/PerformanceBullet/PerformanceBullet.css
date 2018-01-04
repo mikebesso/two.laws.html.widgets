@@ -14,12 +14,14 @@ svg.PerformanceBullet {
 .bullet .title { font-size: 14px; font-weight: bold; }
 .bullet .subtitle { fill: #999; }
 
-svg.PerformanceBullet .bar-back {fill: #ccc; opacity: 0.2;}
-svg.PerformanceBullet .bar-unsuccessful {fill: red; opacity: 0.2;}
-svg.PerformanceBullet .bar-building {fill: orange; opacity: 0.2;}
-svg.PerformanceBullet .bar-successful {fill: cyan; opacity: 0.2;}
-svg.PerformanceBullet .bar-outstanding {fill: blue; opacity: 0.2;}
-svg.PerformanceBullet .bar-exceptional {fill: green; opacity: 0.2;}
+
+
+svg.PerformanceBullet .bar-back {fill: #ccc; }
+svg.PerformanceBullet .bar-unsuccessful {fill: red; }
+svg.PerformanceBullet .bar-building {fill: orange; }
+svg.PerformanceBullet .bar-successful {fill: cyan; }
+svg.PerformanceBullet .bar-outstanding {fill: blue; }
+svg.PerformanceBullet .bar-exceptional {fill: green; }
 
 
 svg.PerformanceBullet .title {font-weight: bold;}
