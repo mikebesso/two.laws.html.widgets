@@ -1,0 +1,53 @@
+
+svg.Targets {
+  border-width: 2;
+  border-color: #ccc;
+}
+.bullet { font: 10px sans-serif; }
+.bullet .marker { stroke: #000; stroke-width: 2px; }
+.bullet .tick line { stroke: #666; stroke-width: .5px; }
+.bullet .range.s0 { fill: #eee; }
+.bullet .range.s1 { fill: #ddd; }
+.bullet .range.s2 { fill: #ccc; }
+.bullet .measure.s0 { fill: lightsteelblue; }
+.bullet .measure.s1 { fill: steelblue; }
+.bullet .title { font-size: 14px; font-weight: bold; }
+.bullet .subtitle { fill: #999; }
+
+
+
+svg.Targets .bar-back {fill: #ccc; }
+svg.Targets .bar-unsuccessful {fill: red; }
+svg.Targets .bar-building {fill: orange; }
+svg.Targets .bar-successful {fill: cyan; }
+svg.Targets .bar-outstanding {fill: blue; }
+svg.Targets .bar-exceptional {fill: green; }
+
+
+svg.Targets .title {font-weight: bold;}
+svg.Targets .subtitle {font-style: italic;}
+
+
+svg.Targets .future {fill: azure;}
+svg.Targets .late {fill: yellow;}
+svg.Targets .pending {fill: darkgray;}
+svg.Targets .completed {fill: green;}
+svg.Targets .missing {fill:red;}
+svg.Targets .extra {fill:blue;}
+
+
+svg.Targets .value
+{
+  text-anchor: middle;
+  alignment-baseline: middle;
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+svg.Targets .title
+{
+  text-anchor: middle;
+  alignment-baseline: middle;
+  font-weight: bold;
+  font-size: 14pt;
+}
